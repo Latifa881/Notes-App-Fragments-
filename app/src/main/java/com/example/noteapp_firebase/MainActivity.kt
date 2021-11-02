@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.noteapp_firebase.R
 
@@ -30,7 +31,12 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
 
             R.id.addNote -> {
-                Navigation.findNavController(this,R.id.fragmentContainerView).navigate(R.id.action_homeFragment_to_addFragment)
+               val id= Navigation.findNavController(this,R.id.fragmentContainerView).currentDestination?.getId()
+               // Toast.makeText(this,"${R.id.homeFragment}=$id",Toast.LENGTH_LONG).show()
+                when(id){
+                    R.id.homeFragment-> Navigation.findNavController(this,R.id.fragmentContainerView).navigate(R.id.action_homeFragment_to_addFragment)
+                    R.id.updateFragment->Navigation.findNavController(this,R.id.fragmentContainerView).navigate(R.id.action_updateFragment_to_addFragment)
+                }
                 return true
             }
 
