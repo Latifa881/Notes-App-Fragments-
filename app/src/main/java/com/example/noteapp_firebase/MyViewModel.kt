@@ -92,7 +92,7 @@ class MyViewModel(application: Application) : AndroidViewModel(application) {
                     getNotesData()
                 }
                 .addOnFailureListener { e ->
-                    Log.w("TAG", "Error adding document", e)
+                    Log.w("TAG", "Error deletimg document", e)
                 }
         }
 
